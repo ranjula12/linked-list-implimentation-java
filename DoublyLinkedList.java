@@ -104,7 +104,7 @@ public class DoublyLinkedList {
 
 	public void deleteAt(int Position) {
 		// Code goes here...
-		if (Position > 1 && Position < size - 1) {
+		if (Position > 0 && Position < size - 1) {
 			Node currentNode = head, nextNode;
 			for (int i = 0; i < Position - 1; i++) {
 				currentNode = currentNode.next;
@@ -114,8 +114,12 @@ public class DoublyLinkedList {
 			nextNode.next.previous = currentNode.next;
 
 			size--;
+		} else if (Position == 0) {
+			deleteFirst();
+		} else if (Position == size - 1) {
+			deleteLast();
 		} else {
-			System.out.println("is not valid poosition to delete so plz use another methode to delete last or fitst");
+			System.out.println("you entered wrong Node position!");
 		}
 
 	}
